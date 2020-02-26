@@ -1,6 +1,9 @@
 /* Author: Brandon Nguyen
+ * 
  * Class ID: 124
- * Assignment 1
+ * 
+ * Assignment 2
+ * 
  * Description: This program creates and array and a count. Integers in the array can be added, removed, searched, and printed out. Count 
  * keeps track of the number of integers in the array.
  * 
