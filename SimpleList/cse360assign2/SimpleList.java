@@ -3,6 +3,8 @@
  * Assignment 1
  * Description: This program creates and array and a count. Integers in the array can be added, removed, searched, and printed out. Count 
  * keeps track of the number of integers in the array.
+ * 
+ * Github URL: https://github.com/bvnguye2/cse360assign2
  */
 
 /**
