@@ -27,15 +27,21 @@ public class SimpleList {
 	
 	
 	/**
-	 * Add class adds an integer to the first spot of an array and shifts the other integers back one
+	 * Add class adds an integer to the first spot of an array and shifts the other integers back one and increases the size of the array if the array is full
 	 * @param insert the integer being inserted into the array
 	 */
 	public void add(int insert)
 	{
-		int[] temp = new int[list.length]; //creates a temporary array
+		int increaseSize = list.length;
+		if(count == list.length) //if the array is full increaseSize is 1.5 times the size of the array
+		{
+			increaseSize = increaseSize + increaseSize/2;
+		}
+		
+		int[] temp = new int[increaseSize]; //creates a temporary array
 		temp[0] = insert; //adds the new integer to the beginning of the temporary array
 		
-		for(int index = 1; index < temp.length; index++)
+		for(int index = 1; index < list.length; index++)
 		{
 			temp[index] = list[index - 1]; //adds the contents of list array after the newly added integer
 		}
@@ -46,7 +52,7 @@ public class SimpleList {
 	
 	
 	/**
-	 * Remove class removes an integer if it is within the array
+	 * Remove class removes an integer if it is within the array and decreases the size of the array by 25% if the array is more that 25% empty
 	 * @param exit the integer being removed from the array
 	 */
 	public void remove(int exit)
@@ -63,6 +69,18 @@ public class SimpleList {
 				count--;
 				list[index] = 0;
 			}
+		}
+		
+		if(count < list.length * 3/4) //if the count is less that 75% of the array decrease the size of the array
+		{
+			int[] temp = new int[list.length * 3/4];
+			
+			for(int index = 0; index < temp.length; index++)
+			{
+				temp[index] = list[index];
+			}
+			
+			list = temp;
 		}
 	}
 	
@@ -116,4 +134,48 @@ public class SimpleList {
 			
 		return location; //return -1 if not found
 	}
+	
+	/**
+	 * Append adds the integer to the end of the class and increase the size of the array by 50% if the array is full
+	 * @param append is the integer being added to the end of the array
+	 */
+	public void append(int append)
+	{
+		int increaseSize = list.length;
+		if(count == list.length) //increases the size of the array if it is full
+		{
+			increaseSize = list.length + list.length/2;
+		}
+		
+		int[] temp = new int[increaseSize];
+		
+		for(int index = 0; index < list.length; index++)
+		{
+			temp[index] = list[index];
+		}
+		
+		temp[count] = append;
+		list = temp;
+	}
+	
+	/**
+	 * First class returns the number at the front of the array
+	 * @return the first integer in the array
+	 */
+	public int first() 
+	{
+		return list[0];
+	}
+	
+	/**
+	 * Size class returns the current size of the array
+	 * @return the current size of the array as an integer
+	 */
+	public int size() 
+	{
+		return list.length;
+	}
+	
+	
+	
 }

@@ -30,6 +30,23 @@ class SimpleListTestGit {
 	}
 	
 	@Test
+	void testAdd3() {
+		SimpleList simple = new SimpleList();
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		assertEquals(simple.size(), 15);
+	}
+	
+	@Test
 	void testRemove() {
 		SimpleList simple = new SimpleList();
 		simple.add(10);
@@ -43,6 +60,18 @@ class SimpleListTestGit {
 		simple.add(10);
 		simple.remove(10);
 		assertEquals(simple.search(10), -1);
+	}
+	
+	@Test
+	void testRemove3() {
+		SimpleList simple = new SimpleList();
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.remove(10);
+		assertEquals(simple.size(), 7);
 	}
 	
 	@Test
@@ -91,6 +120,30 @@ class SimpleListTestGit {
 		simple.add(10);
 		simple.add(2);
 		assertEquals(simple.search(3), -1);
+	}	
+	
+	@Test
+	void testAppend() {
+		SimpleList simple = new SimpleList();
+		simple.add(10);
+		simple.append(2);
+		assertEquals(simple.first(), 10);
+	}
+	
+	void testAppend2() {
+		SimpleList simple = new SimpleList();
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.add(10);
+		simple.append(2);
+		assertEquals(simple.size(), 15);
 	}
 	
 	@Test
@@ -117,7 +170,6 @@ class SimpleListTestGit {
 	@Test
 	void testSize2() {
 		SimpleList simple = new SimpleList();
-		simple.add(10);
 		simple.add(10);
 		simple.add(10);
 		simple.add(10);
