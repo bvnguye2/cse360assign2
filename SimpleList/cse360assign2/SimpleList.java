@@ -62,6 +62,8 @@ public class SimpleList {
 	 */
 	public void remove(int exit)
 	{
+		final int SMALLEST = 1; //smallest size array can be
+		
 		for(int index = 0; index < list.length; index++) //iterates through the array
 		{
 			if(exit == list[index] && index != list.length - 1) //if the integer being removed isn't the last element of the array shift everything over 1
@@ -76,7 +78,7 @@ public class SimpleList {
 			}
 		}
 		
-		if(count < list.length * 3/4) //if the count is less that 75% of the array decrease the size of the array
+		if(count < list.length * 3/4 && list.length != SMALLEST) //if the count is less that 75% of the array decrease the size of the array
 		{
 			int[] temp = new int[list.length * 3/4];
 			
@@ -169,14 +171,33 @@ public class SimpleList {
 	 */
 	public int first() 
 	{
+		if(count == 0)
+		{
+			return -1;
+		}
+		
 		return list[0];
+	}
+	
+	/**
+	 * Last class returns the number at the end of the array
+	 * @return the last integer in the array
+	 */
+	public int last() 
+	{
+		if(count == 0)
+		{
+			return -1;
+		}
+		
+		return list[count - 1];
 	}
 	
 	/**
 	 * Size class returns the current size of the array
 	 * @return the current size of the array as an integer
 	 */
-	public int size() 
+	public int size()
 	{
 		return list.length;
 	}
